@@ -81,6 +81,13 @@ export default function ReadingQuestionView({
         </button>
       </div>
 
+      {/* Mobile bottom nav */}
+      <div className="mobile-nav">
+        <button onClick={onPrev} disabled={question.id === 1 || mode === 'exam'} aria-label="Question précédente">←</button>
+        <span className="mobile-progress">Q{question.id} / {totalQuestions}</span>
+        <button onClick={onNext} disabled={question.id === totalQuestions} aria-label="Question suivante">→</button>
+      </div>
+
       {/* Zoom overlay */}
       {zoomedImage && (
         <div className="image-zoom-overlay" onClick={() => setZoomedImage(null)} role="dialog" aria-label="Document agrandi">

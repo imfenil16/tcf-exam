@@ -1733,3 +1733,183 @@ body {
 .ts-sections-toggle:hover {
   opacity: 1;
 }
+
+/* ===== Mobile Bottom Navigation ===== */
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    gap: 12px;
+  }
+
+  .mobile-nav button {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .mobile-nav button:active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .mobile-nav button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .mobile-progress {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Add bottom padding to prevent content hidden behind fixed nav */
+  .question-area {
+    padding-bottom: 80px;
+  }
+
+  /* Make options touch-friendly */
+  .option-item {
+    min-height: 48px;
+    padding: 14px 16px;
+  }
+
+  .option-text {
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  /* Fix question header on mobile */
+  .question-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .question-number {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Stats banner responsive */
+  .stats-banner {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* Audio player full width */
+  .audio-player {
+    width: 100%;
+  }
+
+  /* Results modal scrollable */
+  .modal-overlay {
+    align-items: flex-start;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  .modal {
+    max-height: none;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Reading document - smaller padding on mobile */
+  .reading-document {
+    padding: 0.75rem;
+  }
+
+  .reading-document img {
+    max-height: 300px;
+  }
+
+  /* Navigation buttons touch friendly */
+  .question-nav .btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  .nav-info {
+    display: none;
+  }
+
+  /* Test grid buttons larger for touch */
+  .test-grid-btn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1rem;
+  }
+
+  /* Header compact on mobile */
+  .header-left .test-badge {
+    display: none;
+  }
+
+  /* Review screen mobile */
+  .review-screen {
+    padding: 20px 16px;
+  }
+
+  .review-actions {
+    flex-direction: column;
+  }
+
+  .review-actions .btn {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 375px) {
+  .stats-banner {
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .option-text {
+    font-size: 0.9rem;
+  }
+
+  .reading-question {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .mobile-nav {
+    padding: 10px 12px;
+  }
+}
