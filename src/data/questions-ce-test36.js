@@ -1,0 +1,65 @@
+export const questionsCeTest36 = [
+  { id: 1, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q1.png', options: ["Appeler la secrétaire.","Consulter un médecin.","Envoyer des documents.","Payer les cours de judo."], correctAnswer: 2 },
+  { id: 2, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q2.png', options: ["Boire.","Cuisiner.","Manger.","Sortir."], correctAnswer: 2 },
+  { id: 3, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q3.png', options: ["Dans un café.","Dans un cinéma.","Dans une boutique.","Dans une entreprise."], correctAnswer: 3 },
+  { id: 4, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q4.png', options: ["Les artistes.","Les élèves.","Les enseignants.","Les familles."], correctAnswer: 3 },
+  { id: 5, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q5.png', options: ["D'acheter du matériel en soldes.","De participer à un concours.","De rencontrer des professionnels.","De suivre des cours débutants"], correctAnswer: 1 },
+  { id: 6, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q6.png', options: ["D'écrire aux invités.","D'organiser la fête.","De garder des enfants.","De préparer des danses."], correctAnswer: 2 },
+  { id: 7, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q7.png', options: ["La boutique est fermée.","La commande est arrivée.","La facture est disponible.","La livraison est en retard."], correctAnswer: 1 },
+  { id: 8, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q8.png', options: ["Des échanges de logements.","Des locations bon marché.","Des réservations sans frais.","Des visites d'appartements."], correctAnswer: 0 },
+  { id: 9, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q9.png', options: ["Un savon pour le corps.","Un shampoing aux herbes.","Une boisson pour dormir.","Une crème de beauté."], correctAnswer: 3 },
+  { id: 10, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q10.png', options: ["Comment acheter des produits congelés.","Comment cuisiner des recettes simples.","Comment faire à manger à bon marché.","Comment réaliser des plats originaux."], correctAnswer: 2 },
+  { id: 11, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q11.png', options: ["Gagner de l'argent pour leur séjour.","Participer à une compétition sportive.","Suivre un atelier de cuisine internationale.","Visiter un établissement scolaire étranger."], correctAnswer: 0 },
+  { id: 12, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q12.png', options: ["De l'aide pour une association.","De nouveaux rayons jouets.","Un concours de jeux vidéo.","Une remise de 2 euros par article."], correctAnswer: 0 },
+  { id: 13, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q13.png', options: ["Ils téléchargent des jeux sur leur poste.","Ils trouvent difficilement des informations.","Leur rendement au travail diminue.","Leurs échanges perdent en efficacité."], correctAnswer: 2 },
+  { id: 14, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q14.png', options: ["Elles adorent utiliser Facebook.","Elles enseignent dans la même école.","Elles habitent dans le même pays.","Elles ont la même famille adoptive."], correctAnswer: 2 },
+  { id: 15, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q15.png', options: ["De faire du sport et de rencontrer des personnes.","De nager régulièrement et de manger du poisson.","De se reposer et de découvrir le milieu marin.","De vivre au calme et de se retrouver en famille."], correctAnswer: 2 },
+  { id: 16, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q16.png', options: ["C'est un appui pédagogique supplémentaire.","C'est un réel facteur de cohésion de groupe.","C'est un simple moyen de communication.","C'est une source de distraction en classe."], correctAnswer: 0 },
+  { id: 17, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q17.png', options: ["Lire des nouveautés en ligne.","Parler à des dessinateurs.","Payer des entrées sur un site.","Réserver une visite guidée."], correctAnswer: 1 },
+  { id: 18, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q18.png', options: ["La crainte de la dépendance.","Le désert affectif ambiant.","La quête du bonheur facile.","La recherche de l'équilibre."], correctAnswer: 2 },
+  { id: 19, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q19.png', options: ["Il cite un extrait d'une oeuvre de Modiano.","Il explique l'idée de départ d'un livre de Modiano.","Il présente le métier de Modiano à ses débuts.","Il raconte la rencontre entre Modiano et sa femme."], correctAnswer: 1 },
+  { id: 20, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q20.png', options: ["Pour créer un lien entre générations.","Pour compléter leurs études.","Pour améliorer leurs revenus.","Parce qu'ils ne veulent plus être seuls."], correctAnswer: 0 },
+  { id: 21, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q21.png', options: ["Un spectacle de cirque.","Une activité de maquillage.","Une rencontre avec un clown.","Une sortie au zoo."], correctAnswer: 1 },
+  { id: 22, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q22.png', options: ["D'interdire les photos portant atteinte à leur dignité.","De diversifier le type de femmes prises pour modèles.","De mentionner les références précises des produits.","De signaler sur les photos les modifications effectuées."], correctAnswer: 3 },
+  { id: 23, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q23.png', options: ["C'est un phénomène mondial.","Il influence la productivité des salariés.","On peut facilement le repérer.","Ses effets sont néfastes pour l'emploi."], correctAnswer: 1 },
+  { id: 24, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q24.png', options: ["La faible qualité de la production française.","Le manque d'innovation dans son entreprise.","Les contraintes des contrôles financiers.","L'expansion de la concurrence internationale."], correctAnswer: 3 },
+  { id: 25, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q25.png', options: ["Il est obligatoire sur les produits.","Il facilite la lecture des étiquettes.","Il répond à une décision des fabricants.","Il transforme l'organisation des rayons."], correctAnswer: 1 },
+  { id: 26, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q26.png', options: ["la des effets encore inconnus.","Il rallonge l'espérance de vie.","Il se propage imperceptiblement.","Il suscite un fort engouement."], correctAnswer: 2 },
+  { id: 27, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q27.png', options: ["Critiquer l'engagement des sportifs en politique internationale.","Décrire les rapports du sport et de la politique internationale.","Dénoncer l'utilisation de l'image des sportifs en diplomatie.","Montrer l'utilité du sport dans la résolution de conflits internationaux."], correctAnswer: 1 },
+  { id: 28, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q28.png', options: ["Commencer une thérapie.","Multiplier les passe-temps.","Rechercher l'âme sœur.","Travailler sur soi-même."], correctAnswer: 3 },
+  { id: 29, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q29.png', options: ["Il doit intervenir dès le plus jeune âge.","Il est indissociable de celui des savoirs.","Il exige une formation solide des professeurs.","Il varie selon la politique éducative des pays."], correctAnswer: 1 },
+  { id: 30, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q30.png', options: ["Elles peuvent être touchées par le public.","Elles répondent à une thématique unique.","Elles sont destinées à être recyclées.","Elles sont issues de techniques variées."], correctAnswer: 3 },
+  { id: 31, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q31.png', options: ["la protection de la biodiversité.","À la transmission de souvenirs.","À l'abolition des frontières.","À l'enrichissement du lexique."], correctAnswer: 3 },
+  { id: 32, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q32.png', options: ["Aider les femmes à se battre pour améliorer leur situation familiale.","Amener les spectateurs à s'émouvoir d'un quotidien douloureux.","Démontrer que la condition de la femme dans les cités est désastreuse.","Informer des difficultés que peuvent rencontrer les enfants des cités."], correctAnswer: 1 },
+  { id: 33, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q33.png', options: ["Ils sont aptes à coloniser un territoire vierge.","Ils sont capables de communiquer entre eux.","Ils sont en compétition pour leur croissance.","Ils sont susceptibles de ressentir des émotions."], correctAnswer: 1 },
+  { id: 34, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q34.png', options: ["De laisser trop de temps à l'oisiveté.","De s'écarter du modèle éducatif légal.","De satisfaire avant tout les adultes.","D'être à l'origine de l'échec scolaire."], correctAnswer: 2 },
+  { id: 35, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q35.png', options: ["En abandonnant les codes traditionnels du roman.","En cherchant des sources d'inspiration inédites.","En proposant de nouveaux concepts universels.","En se jouant des difficultés liées à l'écriture."], correctAnswer: 0 },
+  { id: 36, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36Q36.png', options: ["Elle a accru la compétitivité industrielle.","Elle a amélioré les conditions de travail.","Elle a enrayé la hausse du chômage.","Elle a modifié l'organisation du travail."], correctAnswer: 3 },
+  { id: 37, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q37.png', options: ["Le coût social élevé de prise en charge des maladies génétiques.","Le développement de traitements curatifs de pathologies génétiques.","Le mode de financement de la recherche génétique fondamentale.","Les dérives induites par l'amélioration du patrimoine génétique."], correctAnswer: 3 },
+  { id: 38, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q38.png', options: ["Elle plagie la doctrine d'un célèbre linguiste.","Elle remet en cause les théories habituelles.","Elle soutient des hypothèses indémontrables.","Elle utilise des outils scientifiques peu fiables"], correctAnswer: 1 },
+  { id: 39, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2024/06/36q39.png', options: ["Il reconnaît ses aspects pratiques.","Il remet en cause ses bienfaits.","Il s'inquiète de son usage abusif.","Il s'émerveille de sa technologie."], correctAnswer: 2 },
+];
+
+const sectionMeta = [
+  { range: [1, 10], section: 1, sectionTitle: "Comprendre un document court", level: "A1/A2" },
+  { range: [11, 20], section: 2, sectionTitle: "Comprendre un document informatif", level: "B1/B2" },
+  { range: [21, 30], section: 3, sectionTitle: "Comprendre un texte argumentatif", level: "B2/C1" },
+  { range: [31, 39], section: 4, sectionTitle: "Comprendre un texte complexe", level: "C1/C2" },
+];
+
+sectionMeta.forEach(({ range, section, sectionTitle, level }) => {
+  questionsCeTest36.forEach(q => {
+    if (q.id >= range[0] && q.id <= range[1]) {
+      q.section = section;
+      q.sectionTitle = sectionTitle;
+      q.level = level;
+    }
+  });
+});
+
+export const sectionsCeTest36 = [
+  { id: 1, title: "Section 1 — Comprendre un document court", levels: "A1 · A2", range: [1, 10], description: "Lisez le document et répondez à la question." },
+  { id: 2, title: "Section 2 — Comprendre un document informatif", levels: "B1 · B2", range: [11, 20], description: "Lisez le document et répondez à la question." },
+  { id: 3, title: "Section 3 — Comprendre un texte argumentatif", levels: "B2 · C1", range: [21, 30], description: "Lisez le texte et répondez à la question." },
+  { id: 4, title: "Section 4 — Comprendre un texte complexe", levels: "C1 · C2", range: [31, 39], description: "Lisez le texte et répondez à la question." },
+];

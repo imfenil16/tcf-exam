@@ -1,0 +1,29 @@
+{
+  "project": "TCF Canada - Compréhension Orale - New UI",
+  "client": "Réussir TCF Canada (examens.preptcfcanada.com)",
+  "framework": "React + Vite",
+  "structure": {
+    "src/data/questions.js": "All 39 questions with types, audio URLs, options, and correct answers",
+    "src/data/answer-keys/": "JSON answer key files for each test (easy backup/reference)",
+    "src/components/": "React components: Header, Sidebar, AudioPlayer, QuestionView, OptionsList, TestSelection, SectionIntro, ReviewScreen, ResultsModal",
+    "src/hooks/": "Custom hooks: useAudioPlayer (HTML5 Audio), useTimer (35min countdown)",
+    "src/styles/global.css": "Complete dark theme with TCF branding"
+  },
+  "features": [
+    "3 question types: Image+Audio, Audio-only, Text answers",
+    "Real MP3 audio from platform CDN",
+    "39 questions with correct answer grading",
+    "4 TCF sections with CECR levels (A1→C2)",
+    "Exam mode (linear, one-listen) vs Training mode (free nav, replay)",
+    "Section intro overlays",
+    "Review screen after submission",
+    "Timer with auto-submit",
+    "Keyboard shortcuts"
+  ],
+  "resources": {
+    "audioPattern": "https://examens.preptcfcanada.com/wp-content/uploads/2022/05/Test-04-Q{1-39}.mp3",
+    "imagePattern": "https://examens.preptcfcanada.com/wp-content/uploads/2022/05/q{1-4}-t1-gr.jpg",
+    "quizId": 25,
+    "wpPostId": 13449
+  }
+}

@@ -1,0 +1,65 @@
+export const questionsCeTest40 = [
+  { id: 1, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q01-1.png', options: ["Pour proposer une promenade en bateau.","Pour raconter son séjour en Bretagne.","Pour répondre à son cousin Benjamin.","Pour réserver une place dans un camping."], correctAnswer: 1 },
+  { id: 2, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q02-1.png', options: ["Commander des médicaments.","Demander un remboursement.","Lire des résultats d'analyse.","Voir un docteur à distance."], correctAnswer: 3 },
+  { id: 3, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q03-1.png', options: ["De faire un achat.","De préparer un repas.","De réserver un restaurant.","De trouver une recette."], correctAnswer: 0 },
+  { id: 4, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q04-1.png', options: ["De l'aide pour un événement.","De l'argent pour un concours.","Des artistes pour monter sur scène.","Des guides pour des visites de la ville."], correctAnswer: 0 },
+  { id: 5, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q05-1.png', options: ["Un repas au restaurant.","Un séjour à l'hôtel.","Une commande de matériel.","Une location de voiture."], correctAnswer: 1 },
+  { id: 6, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q06-1.png', options: ["Aider des familles en difficulté.","Donner un vélo à des élèves.","Ouvrir de nouveaux collèges.","Réparer de vieilles bicyclettes."], correctAnswer: 1 },
+  { id: 7, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q07-1.png', options: ["D'apprendre à cuisiner des plats.","De faire de nouvelles rencontres.","De faire une promenade dans un parc.","De prendre des cours de langue."], correctAnswer: 1 },
+  { id: 8, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q08-1.png', options: ["Pour annoncer son déménagement.","Pour donner de ses nouvelles.","Pour inviter Lucie en vacances.","Pour remercier son amie."], correctAnswer: 1 },
+  { id: 9, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q09-1.png', options: ["De participer à un concours.","De s'inscrire à un stage.","De tester des activités","Voir un spectacle."], correctAnswer: 2 },
+  { id: 10, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q10-1.png', options: ["Dessiner des bâtiments publics originaux.","Donner le goût du voyage aux habitants","Inventer une ville facile à vivre pour tous.","Prévoir de nouveaux moyens de transport."], correctAnswer: 2 },
+  { id: 11, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q11-1.png', options: ["De dormir au milieu de la nature.","Faire un parcours dans les arbres.","De participer à une aventure sportive.","De passer une nuit sous la tente."], correctAnswer: 0 },
+  { id: 12, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q12-1.png', options: ["De participer à un jeu.","De préparer un repas.","De recevoir de l'argent.","De remplir un formulaire."], correctAnswer: 0 },
+  { id: 13, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q13-1.png', options: ["De participer à la vie de l'entreprise.","De poser leurs jours de vacances.","De remplir un formulaire en ligne.","De respecter les règles de sécurité."], correctAnswer: 1 },
+  { id: 14, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q14-1.png', options: ["Demander de l'aide.","Informer le gardien.","Inviter à une soirée.","Remercier les locataires."], correctAnswer: 0 },
+  { id: 15, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q15-1.png', options: ["Acheter un billet d'avion.","Organiser des vacances.","Réserver un parking.","Transporter des personnes."], correctAnswer: 3 },
+  { id: 16, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q16-1.png', options: ["Il dispose de chambres spacieuses.","Il est proche des lieux à visiter.","Il propose la location de bicyclettes.","Il se trouve en plein centre-ville."], correctAnswer: 1 },
+  { id: 17, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q17-1.png', options: ["D'acheter des médicaments sans ordonnance.","D'avoir le choix entre différents spécialistes.","De prendre rapidement rendez-vous.","De traiter seul des affections bénignes."], correctAnswer: 3 },
+  { id: 18, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q18-1.png', options: ["Le rôle joué par les historiens.","Le rythme de son avancement.","Le succès auprès du public.","Les personnes qui y travaillent."], correctAnswer: 3 },
+  { id: 19, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q19-1.png', options: ["La compagnie aérienne a annulé le vol en Grèce.","Les billets comportaient une faute d'orthographe.","Les clients ont fait un mauvais choix lors de l'achat.","Un agent de l'aéroport a mal renseigné les touristes."], correctAnswer: 2 },
+  { id: 20, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q20.png', options: ["Il a avalé un mauvais morceau de fromage.","Il a trouvé quelque chose dans son fromage.","Il est tombé malade en mangeant du fromage.","Il s'est fait mal aux dents avec le fromage."], correctAnswer: 1 },
+  { id: 21, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q21.png', options: ["Accéder à la propriété privée.","Avoir un mode de vie économique.","Participer à la vie associative.","Tenter une nouvelle aventure."], correctAnswer: 3 },
+  { id: 22, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q22.png', options: ["Parce qu'il y a eu des pluies importantes.","Parce que les femelles ont moins pondu.","Parce que les larves ont beaucoup mangé.","Parce qu'ils ont hiberné plus longtemps."], correctAnswer: 2 },
+  { id: 23, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q23.png', options: ["D'analyser les moyens de séduire les jeunes.","De moderniser le contenu des expositions.","De s'inspirer des approches pédagogiques scolaires.","De systématiser l'accès gratuit pour les adolescents."], correctAnswer: 0 },
+  { id: 24, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q24.png', options: ["Ils doivent être attentifs aux risques de l'isolement.","Ils intensifient les échanges entre collaborateurs.","Ils jonglent entre vie privée et vie professionnelle.","Ils sont plus productifs que les collègues au bureau."], correctAnswer: 2 },
+  { id: 25, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q25.png', options: ["Développer une identité commune.","Récompenser les plus beaux sites.","Sauvegarder le patrimoine français.","Valoriser la diversité des langues."], correctAnswer: 0 },
+  { id: 26, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q26.png', options: ["La lutte pour le maintien du niveau des salaires.","La volonté de déménager à l'âge adulte.","L'attachement aux valeurs de l'entreprise.","Le désir d'évolution durant la vie active."], correctAnswer: 3 },
+  { id: 27, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q27.png', options: ["D'un rassemblement de clients mécontents.","D'une opération de vente promotionnelle.","De l'inauguration d'un nouvel établissement.","De l'organisation d'une animation clandestine."], correctAnswer: 3 },
+  { id: 28, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q28.png', options: ["Commencer une thérapie.","Multiplier les passe-temps.","Rechercher l'âme sœur.","Travailler sur soi-même."], correctAnswer: 3 },
+  { id: 29, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q29.png', options: ["Il est stimulé en phase d'apprentissage du langage.","À chaque activité correspond une région précise.","Les neurones sont concentrés dans quelques zones.","Son développement est lié au caractère d'un individu."], correctAnswer: 1 },
+  { id: 30, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q30.png', options: ["L'information est trop rarement contrôlée à sa source.","La population est insuffisamment formée aux médias.","Les fausses nouvelles sont facilement diffusées en ligne.","Les images influencent en permanence les consommateurs."], correctAnswer: 1 },
+  { id: 31, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q31.png', options: ["Elle devrait être réservée aux périodes de congés.","Elle est préconisée par la médecine.","Elle peine à se répandre en milieu professionnel.","Elle serait néfaste pour le rendement."], correctAnswer: 2 },
+  { id: 32, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q32.png', options: ["Développer leur esprit critique.","Encourager les débats entre eux.","Enrichir leur capacité mémorielle.","Évaluer régulièrement leurs acquis."], correctAnswer: 0 },
+  { id: 33, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q33.png', options: ["Il critique la méthodologie utilisée.","Il discute la pertinence des exemples.","Il nuance les prévisions alarmistes.","Il confirme les résultats de l'étude."], correctAnswer: 2 },
+  { id: 34, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q34.png', options: ["Elles bénéficient d'un effet de mode.","Elles inquiètent les jeunes enfants.","Elles relèvent d'un genre spécifique.","Elles symbolisent la peur de l'inconnu."], correctAnswer: 0 },
+  { id: 35, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q35.png', options: ["Il se sentait trop vieux pour les tournées.","Il voulait fuir son image d'idole des jeunes.","Le public préférait l'écrivain au chanteur.","Ses chansons étaient passées de mode."], correctAnswer: 0 },
+  { id: 36, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q36.png', options: ["Leur capacité à négocier.","Leur esprit belliqueux.","Leur sens de l'esthétique.","Leur talent d'agriculteurs."], correctAnswer: 1 },
+  { id: 37, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q37.png', options: ["Ils étouffent le libre-arbitre.","Ils livrent des informations douteuses.","Ils multiplient les résultats.","Ils sont envahis d'annonces publicitaires."], correctAnswer: 0 },
+  { id: 38, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q38.png', options: ["Les évolutions des régimes alimentaires.","Les mesures contre le gaspillage.","Les normes imposées aux entreprises.","Les stratégies de communication."], correctAnswer: 3 },
+  { id: 39, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2025/01/CE40Q39.png', options: ["La diversité de ses enquêtes.","La finesse de ses raisonnements.","La longévité de sa carrière.","La vivacité de ses mouvements."], correctAnswer: 1 },
+];
+
+const sectionMeta = [
+  { range: [1, 10], section: 1, sectionTitle: "Comprendre un document court", level: "A1/A2" },
+  { range: [11, 20], section: 2, sectionTitle: "Comprendre un document informatif", level: "B1/B2" },
+  { range: [21, 30], section: 3, sectionTitle: "Comprendre un texte argumentatif", level: "B2/C1" },
+  { range: [31, 39], section: 4, sectionTitle: "Comprendre un texte complexe", level: "C1/C2" },
+];
+
+sectionMeta.forEach(({ range, section, sectionTitle, level }) => {
+  questionsCeTest40.forEach(q => {
+    if (q.id >= range[0] && q.id <= range[1]) {
+      q.section = section;
+      q.sectionTitle = sectionTitle;
+      q.level = level;
+    }
+  });
+});
+
+export const sectionsCeTest40 = [
+  { id: 1, title: "Section 1 — Comprendre un document court", levels: "A1 · A2", range: [1, 10], description: "Lisez le document et répondez à la question." },
+  { id: 2, title: "Section 2 — Comprendre un document informatif", levels: "B1 · B2", range: [11, 20], description: "Lisez le document et répondez à la question." },
+  { id: 3, title: "Section 3 — Comprendre un texte argumentatif", levels: "B2 · C1", range: [21, 30], description: "Lisez le texte et répondez à la question." },
+  { id: 4, title: "Section 4 — Comprendre un texte complexe", levels: "C1 · C2", range: [31, 39], description: "Lisez le texte et répondez à la question." },
+];

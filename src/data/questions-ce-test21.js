@@ -1,0 +1,68 @@
+export const questionsCeTest21 = [
+  { id: 1, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q1.png', options: ["Pour proposer une promenade en bateau.","Pour raconter son séjour en Bretagne.","Pour répondre à son cousin Benjamin.","Pour réserver une place dans un camping."], correctAnswer: 1 },
+  { id: 2, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q2.png', options: ["Quelque chose à boire.","Quelque chose à manger.","Quelque chose pour la pluie.","Quelque chose pour le soleil."], correctAnswer: 3 },
+  { id: 3, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q3.png', options: ["9 euros.","12,50 euros.","16 euros.","20 euros."], correctAnswer: 2 },
+  { id: 4, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q4.png', options: ["Des adresses d'artisans.","Des idées de décoration.","Des leçons de bricolage.","Des modèles de meubles."], correctAnswer: 1 },
+  { id: 5, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q5.png', options: ["Découvrir la nourriture locale.","Gagner un repas traditionnel.","Prendre un cours de cuisine.","Visiter une ferme française."], correctAnswer: 0 },
+  { id: 6, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q6.png', options: ["Elle est en voyage à Montpellier.","Elle rencontre des amis à Paris.","Elle suit des cours à l'université.","Elle travaille dans un restaurant."], correctAnswer: 3 },
+  { id: 7, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q7.png', options: ["C'est un bâtiment ancien.","Il se trouve en banlieue.","On peut y rencontrer des acteurs.","Ses films sont en noir et blanc."], correctAnswer: 0 },
+  { id: 8, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q8.png', options: ["Ecrire un message.","Prendre un billet d'avion.","Réserver un hôtel.","S'inscrire à un jeu."], correctAnswer: 0 },
+  { id: 9, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q9.png', options: ["Un savon pour le corps.","Un shampoing aux herbes.","Une boisson pour dormir.","Une crème de beauté."], correctAnswer: 3 },
+  { id: 10, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q10.png', options: ["Beaucoup de personnes le visitent.","Il vend des articles bon marché.","Il y a un célèbre musée à l'intérieur.","On y donne des cours de cuisine."], correctAnswer: 0 },
+  { id: 11, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q11.png', options: ["À acheter sur internet.","À choisir ses produits.","À noter les magasins.","À trouver des recettes."], correctAnswer: 1 },
+  { id: 12, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q12.png', options: ["L'agrandir.","L'échanger.","La louer.","La vendre."], correctAnswer: 1 },
+  { id: 13, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q13.png', options: ["Analyser leurs effets.","Augmenter leur résistance.","Étudier leur développement","Multiplier leurs variétés."], correctAnswer: 0 },
+  { id: 14, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q14.png', options: ["Écouter des chansons.","Gagner des cadeaux.","Goûter des recettes.","Jouer dans un film."], correctAnswer: 2 },
+  { id: 15, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q15.png', options: ["De l'utilisation du portable.","De la sécurité au volant.","Du bruit de la circulation.","Du vote d'une nouvelle loi."], correctAnswer: 0 },
+  { id: 16, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q16.png', options: ["Avoirs des réductions sur certains articles.","Faire des courses dans un magasin.","Offrir une surprise pour un anniversaire.","Retirer de l'argent a un distributeur."], correctAnswer: 1 },
+  { id: 17, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q17.png', options: ["De découvrir un parc d'animation.","De gagner un séjour en famille.","De se promener dans une ferme.","De visiter une grande exposition."], correctAnswer: 3 },
+  { id: 18, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q18.png', options: ["L'interprétation des comédiens.","La durée de la représentation.","La qualité littéraire du texte.","Le lieu du spectacle."], correctAnswer: 1 },
+  { id: 19, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q19.png', options: ["L'origine historique de la recette.","Le secret d'une bonne préparation.","Les adresses où les consommer.","Les raisons de leur popularité."], correctAnswer: 1 },
+  { id: 20, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q20.png', options: ["Il cite un extrait d'une œuvre de Modiano.","Il explique l'idée de départ d'un livre de Modiano.","Il présente le métier de Modiano à ses débuts.","Il raconte la rencontre entre Modiano et sa femme."], correctAnswer: 1 },
+  { id: 21, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q21.png', options: ["Le remboursement de son article.","L'échange de son téléphone.","L'envoi de son téléphone par la poste.","Une réclamation sur son achat."], correctAnswer: 0 },
+  { id: 22, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q22.png', options: ["Effectuer un calcul.","Évoquer un fait divers.","Fournir un support.","Sélectionner un souvenir."], correctAnswer: 3 },
+  { id: 23, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q23.png', options: ["Elle est simple à mettre en place, mais aussi très couteuse.","Elle est source d'infection pour des patients déjà fragiles.","Elle entraine une trop grande consommation d'énergie.","Elle concurrence des modes naturels de rafraîchissement de l'air."], correctAnswer: 2 },
+  { id: 24, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q24.png', options: ["Ce sont des réseaux de commerçants qui les ont créés.","Ils sont financés discrètement par des entreprises.","Les prestations qu'ils proposent sont payantes.","Leur maintenance est assurée par des bénévoles."], correctAnswer: 1 },
+  { id: 25, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q25.png', options: ["Par l'abolition des relations hiérarchiques classiques.","Par la mise en place d'une carte écologique commune.","Par la primauté de l'intérêt collectif sur bénéfices.","Par la répartition équitable des profits entre salariés."], correctAnswer: 2 },
+  { id: 26, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q26.png', options: ["L'avenir de son travail est menacé par l'industrie agroalimentaire.","La qualité des produits charcutiers est reconnue par les médecins.","Le passage d'un métier de bouche à un autre se fait facilement.","L'image attachée à sa profession est stéréotypée et peu valorisante."], correctAnswer: 3 },
+  { id: 27, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q27.png', options: ["Il dissocie environnement et questions sociales.","Il envisage avec optimisme les futurs possibles.","Il reste sceptique envers les scientifiques.","Il s'associe à l'écriture d'un documentaire."], correctAnswer: 1 },
+  { id: 28, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q28.png', options: ["À quel problème sont confrontés les distributeurs indépendants.","La forte concurrence des vidéos à la demande à la télévision.","Le désintérêt croissant du public pour les productions indépendantes.","Les nombreux échecs des projections proposées le weekend."], correctAnswer: 0 },
+  { id: 29, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q29.png', options: ["Commencer une thérapie.","Multiplier les passe-temps.","Rechercher l'âme sœur.","Travailler sur soi-même."], correctAnswer: 3 },
+  { id: 30, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q30.png', options: ["Il commente une loi.","Il donne un conseil.","Il formule une plainte.","Il raconte une anecdote."], correctAnswer: 1 },
+  { id: 31, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q31.png', options: ["Abandonner le travail du bois.","Aider les plus démunis à se loger.","Bâtir des locaux commerciaux.","Développer l'activité de recyclage."], correctAnswer: 1 },
+  { id: 32, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q32.png', options: ["L'attirance pour les espaces naturels.","L'insécurité des zones urbaines.","La précarité du monde professionnel.","Le désir de vivre en communauté."], correctAnswer: 2 },
+  { id: 33, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q33.png', options: ["Il est imposé sans explications aux enseignants.","Il manque de finesse dans l'analyse des résultats.","Il propose des questions inadaptées aux enfants.","Il remet en question des traditions profondément ancrées."], correctAnswer: 3 },
+  { id: 34, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q34.png', options: ["Ce sont des blessures corporelles superficielles.","Elles sont commises par des groupes minoritaires.","Les autorités universitaires s'en préoccupent peu.","Lutter contre elles peut nuire à certaines libertés."], correctAnswer: 3 },
+  { id: 35, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q35.png', options: ["Il apaise les tensions de la société.","Il insiste sur le pont de vue matériel.","Il propose des programmes utopiques.","Il traite les problèmes liés aux sols."], correctAnswer: 1 },
+  { id: 36, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q36.png', options: ["Être au plus près de l'actualité.","Présenter des histoires positives.","Proposer des anecdotes amusantes.","Recenser les dérives de la société."], correctAnswer: 1 },
+  { id: 37, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q37.png', options: ["Elle favorise l'évolution des mentalités.","Elles incarnent une première historique.","Elle permet de moderniser le lexique.","Elle reflète les clivages de la société."], correctAnswer: 0 },
+  { id: 38, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q38.png', options: ["Ils ont une influence très préoccupante sur l'économie.","Ils se produisent dans les entreprises industrielles.","Ils sont remplacés par des pathologies professionnelles.","Ils sont source de traumatismes musculaires."], correctAnswer: 2 },
+  { id: 39, type: 'reading', image: 'https://examens.preptcfcanada.com/wp-content/uploads/2023/02/comprehension-ecrite-21Q39.png', options: ["À établir un lien entre robotique et individualisme.","À évaluer l'action des robots dans la lutte contre la solitude.","À répéter les dérivés issus de la robotique dans le quotidien.","À vérifier l'empathie ressentie envers les robots."], correctAnswer: 3 },
+];
+
+const sectionMeta = [
+  { range: [1, 5], section: 1, sectionTitle: "Comprendre un document court", level: "A1" },
+  { range: [6, 10], section: 1, sectionTitle: "Comprendre un document court", level: "A2" },
+  { range: [11, 15], section: 2, sectionTitle: "Comprendre un document informatif", level: "B1" },
+  { range: [16, 20], section: 2, sectionTitle: "Comprendre un document informatif", level: "B2" },
+  { range: [21, 25], section: 3, sectionTitle: "Comprendre un texte argumentatif", level: "B2" },
+  { range: [26, 30], section: 3, sectionTitle: "Comprendre un texte argumentatif", level: "C1" },
+  { range: [31, 35], section: 4, sectionTitle: "Comprendre un texte complexe", level: "C1" },
+  { range: [36, 39], section: 4, sectionTitle: "Comprendre un texte complexe", level: "C2" },
+];
+
+sectionMeta.forEach(({ range, section, sectionTitle, level }) => {
+  questionsCeTest21.forEach(q => {
+    if (q.id >= range[0] && q.id <= range[1]) {
+      q.section = section;
+      q.sectionTitle = sectionTitle;
+      q.level = level;
+    }
+  });
+});
+
+export const sectionsCeTest21 = [...new Set(sectionMeta.map(s => s.section))].map(num => {
+  const meta = sectionMeta.find(s => s.section === num);
+  const questions = questionsCeTest21.filter(q => q.section === num);
+  return { number: num, title: meta.sectionTitle, questionCount: questions.length, startId: questions[0]?.id };
+});
