@@ -175,7 +175,16 @@ export default function App() {
     setShowResults(false);
     setShowReview(false);
     setActiveTest(null);
+    window.history.pushState(null, '', window.location.pathname);
   }, []);
+
+  const handleGoHome = useCallback(() => {
+    if (Object.keys(answers).length > 0) {
+      if (!confirm('Quitter le test ? Votre progression sera perdue.')) return;
+    }
+    audio.stop();
+    handleRestart();
+  }, [answers, audio, handleRestart]);
 
   const handleReview = useCallback(() => {
     setShowResults(false);
@@ -200,7 +209,25 @@ export default function App() {
     setFlagged([]);
     setShowResults(false);
     setShowReview(false);
+    window.history.pushState({ test: testId }, '', window.location.pathname);
   }, []);
+
+  // Browser back button support
+  useEffect(() => {
+    const handlePopState = () => {
+      if (activeTest) {
+        audio.stop();
+        setAnswers({});
+        setFlagged([]);
+        setCurrentQuestion(1);
+        setShowResults(false);
+        setShowReview(false);
+        setActiveTest(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [activeTest, audio]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -265,7 +292,7 @@ export default function App() {
           />
 
           <div className="main-content">
-            <Header timer={timer} onSubmit={handleSubmit} isReadingTest={isReadingTest} />
+            <Header timer={timer} onSubmit={handleSubmit} onGoHome={handleGoHome} isReadingTest={isReadingTest} />
 
             {question && !isReadingTest && (
               <QuestionView

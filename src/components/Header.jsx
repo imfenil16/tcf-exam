@@ -1,13 +1,13 @@
-export default function Header({ timer, onSubmit, isReadingTest }) {
+export default function Header({ timer, onSubmit, onGoHome, isReadingTest }) {
   const timerClass = timer.minutes < 5 ? 'danger' : timer.minutes < 10 ? 'warning' : '';
 
   return (
     <header className="header" role="banner">
       <div className="header-left">
-        <div className="logo">
+        <button className="logo" onClick={onGoHome} title="Retour à l'accueil" aria-label="Retour à l'accueil">
           <div className="logo-icon">{isReadingTest ? '📖' : '🎧'}</div>
           <span>TCF Canada</span>
-        </div>
+        </button>
         <span className="test-badge">{isReadingTest ? 'Compréhension Écrite' : 'Compréhension Orale'}</span>
       </div>
 
