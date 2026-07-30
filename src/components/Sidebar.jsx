@@ -14,11 +14,11 @@ export default function Sidebar({ questions = [], sections = [], currentQuestion
         </div>
       </div>
 
-      {sections.map(({ id, title, levels, range }) => {
+      {sections.map(({ id, title, levels, range }, sectionIndex) => {
         const sectionQs = questions.filter(q => q.id >= range[0] && q.id <= range[1]);
         const answeredInSection = sectionQs.filter(q => answers[q.id] !== undefined).length;
         return (
-          <div className="sidebar-section" key={id}>
+          <div className="sidebar-section" key={id ?? `section-${sectionIndex}`}>
             <div className="sidebar-title">
               {title.split(' — ')[0]}
               <span className="section-progress">{answeredInSection}/{sectionQs.length}</span>
@@ -35,6 +35,8 @@ export default function Sidebar({ questions = [], sections = [], currentQuestion
                     key={q.id}
                     className={classes.join(' ')}
                     onClick={() => onSelect(q.id)}
+                    aria-label={`Question ${q.id}`}
+                    aria-current={q.id === currentQuestion ? 'true' : undefined}
                   >
                     {q.id}
                   </button>

@@ -21,7 +21,7 @@ export default function AudioPlayer({ isPlaying, currentTime, duration, progress
 
   return (
     <div className="audio-player">
-      <button className="play-btn" onClick={onToggle}>
+      <button className="play-btn" onClick={onToggle} aria-label={isPlaying ? 'Mettre en pause' : 'Lire l\u2019audio'}>
         {isPlaying ? '⏸' : '▶'}
       </button>
       <div className="player-body">
@@ -37,7 +37,7 @@ export default function AudioPlayer({ isPlaying, currentTime, duration, progress
             />
           ))}
         </div>
-        <div className="player-progress" onClick={handleProgressClick}>
+        <div className="player-progress" onClick={handleProgressClick} role="slider" aria-label="Progression audio" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100} tabIndex={0}>
           <div className="player-progress-fill" style={{ width: `${progress}%` }} />
         </div>
         <div className="player-time">

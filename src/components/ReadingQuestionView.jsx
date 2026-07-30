@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import OptionsList from './OptionsList';
 
 export default function ReadingQuestionView({
@@ -13,6 +13,13 @@ export default function ReadingQuestionView({
   mode,
 }) {
   const [zoomedImage, setZoomedImage] = useState(null);
+
+  useEffect(() => {
+    if (!zoomedImage) return;
+    const handleKey = (e) => { if (e.key === 'Escape') setZoomedImage(null); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [zoomedImage]);
 
   return (
     <div className="question-area">
@@ -29,6 +36,8 @@ export default function ReadingQuestionView({
           <button
             className={`flag-btn ${isFlagged ? 'flagged' : ''}`}
             onClick={onToggleFlag}
+            aria-label={isFlagged ? 'Retirer le marquage' : 'Marquer la question'}
+            aria-pressed={isFlagged}
           >
             🚩 {isFlagged ? 'Marquée' : 'Marquer'}
           </button>
@@ -36,8 +45,8 @@ export default function ReadingQuestionView({
       </div>
 
       {/* Document image */}
-      <div className="reading-document" onClick={() => setZoomedImage(question.image)}>
-        <img src={question.image} alt={`Document question ${question.id}`} />
+      <div className="reading-document" onClick={() => setZoomedImage(question.image)} role="button" tabIndex={0} aria-label="Agrandir le document" onKeyDown={(e) => { if (e.key === 'Enter') setZoomedImage(question.image); }}>
+        <img src={question.image} alt={`Document pour la question ${question.id}`} />
         <span className="zoom-hint">🔍 Cliquez sur l'image pour agrandir</span>
       </div>
 
@@ -74,7 +83,7 @@ export default function ReadingQuestionView({
 
       {/* Zoom overlay */}
       {zoomedImage && (
-        <div className="image-zoom-overlay" onClick={() => setZoomedImage(null)}>
+        <div className="image-zoom-overlay" onClick={() => setZoomedImage(null)} role="dialog" aria-label="Document agrandi">
           <img src={zoomedImage} alt="Document agrandi" />
         </div>
       )}

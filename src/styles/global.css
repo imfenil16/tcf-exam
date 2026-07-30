@@ -6,7 +6,7 @@
   --bg-input: #16161e;
   --text-primary: #e8e8ed;
   --text-secondary: #9898a6;
-  --text-muted: #5a5a6e;
+  --text-muted: #8888a0;
   --accent: #6c5ce7;
   --accent-light: #a29bfe;
   --accent-glow: rgba(108, 92, 231, 0.3);
@@ -14,6 +14,7 @@
   --warning: #fdcb6e;
   --danger: #e17055;
   --border: #2a2a3a;
+  --bg-tertiary: #2e2e3e;
   --border-light: #3a3a4a;
   --radius: 12px;
   --radius-sm: 8px;
@@ -768,6 +769,31 @@ body {
   }
 }
 
+/* ===== Focus Styles ===== */
+.btn:focus-visible,
+.option-item:focus-visible,
+.q-btn:focus-visible,
+.test-grid-btn:focus-visible,
+.mode-card:focus-visible,
+.flag-btn:focus-visible,
+.play-btn:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
+
+.option-item:focus-visible {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
   width: 6px;
@@ -1498,11 +1524,11 @@ body {
 
 /* ===== Reading Test ===== */
 .reading-document {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
   border-radius: var(--radius);
-  padding: 1rem;
-  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   cursor: pointer;
   transition: var(--transition);
   position: relative;
@@ -1511,32 +1537,34 @@ body {
 
 .reading-document:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent-glow);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
 }
 
 .reading-document img {
   max-width: 100%;
-  max-height: 420px;
+  max-height: 500px;
   object-fit: contain;
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
 }
 
 .reading-question {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1.25rem;
-  padding: 0.75rem 1rem;
-  background: var(--bg-secondary);
-  border-left: 3px solid var(--accent);
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(96, 165, 250, 0.12);
+  border-left: 4px solid var(--accent);
   border-radius: var(--radius-sm);
+  line-height: 1.5;
 }
 
 .zoom-hint {
   display: block;
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
 }
 
 .image-zoom-overlay {
@@ -1666,7 +1694,7 @@ body {
 
 .breakdown-bar {
   height: 100%;
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   border-radius: 4px;
   transition: width 0.4s ease;
 }

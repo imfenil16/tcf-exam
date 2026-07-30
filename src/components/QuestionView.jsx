@@ -28,6 +28,8 @@ export default function QuestionView({
           <button
             className={`flag-btn ${isFlagged ? 'flagged' : ''}`}
             onClick={onToggleFlag}
+            aria-label={isFlagged ? 'Retirer le marquage' : 'Marquer la question'}
+            aria-pressed={isFlagged}
           >
             🚩 {isFlagged ? 'Marquée' : 'Marquer'}
           </button>

@@ -265,7 +265,7 @@ export default function App() {
           />
 
           <div className="main-content">
-            <Header timer={timer} onSubmit={handleSubmit} />
+            <Header timer={timer} onSubmit={handleSubmit} isReadingTest={isReadingTest} />
 
             {question && !isReadingTest && (
               <QuestionView

@@ -52,11 +52,11 @@ export default function ResultsModal({ questions = [], answers, totalQuestions, 
   const levelIndex = levelOrder.indexOf(level);
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="results-title">
       <div className="modal">
         <div className="modal-header">
           <span className="modal-icon">📋</span>
-          <h2 className="modal-title">Test terminé</h2>
+          <h2 className="modal-title" id="results-title">Test terminé</h2>
           <p className="modal-subtitle">Voici le résumé de vos réponses</p>
         </div>
 
