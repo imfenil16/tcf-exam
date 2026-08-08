@@ -3,6 +3,7 @@ import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimer } from './hooks/useTimer';
 
 const testLoaders = {
+  'co-all': () => import('./data/all-unique-co'),
   'co-test-1': () => import('./data/questions'),
   'co-test-2': () => import('./data/questions-test2'),
   'co-test-3': () => import('./data/questions-test3'),

@@ -51,6 +51,12 @@ export default function TestSelection({ onStartTest }) {
               <h2>{"\uD83C\uDFA7"} Compréhension Orale</h2>
               <span className="grid-meta">40 tests · 39 questions · 35 min</span>
             </div>
+            <button
+              className="all-questions-btn"
+              onClick={() => handleStart('co-all')}
+            >
+              {"🎯"} Toutes les questions uniques (1 496)
+            </button>
             <div className="test-grid">
               {coTests.map(t => (
                 <button
