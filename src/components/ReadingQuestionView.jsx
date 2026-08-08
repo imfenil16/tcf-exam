@@ -50,8 +50,8 @@ export default function ReadingQuestionView({
         <span className="zoom-hint">🔍 Cliquez sur l'image pour agrandir</span>
       </div>
 
-      {/* Question text */}
-      <div className="reading-question">{question.question}</div>
+      {/* Question text (only shown when available — most tests embed it in the image) */}
+      {question.question && <div className="reading-question">{question.question}</div>}
 
       {/* Options */}
       <OptionsList
