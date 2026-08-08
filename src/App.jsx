@@ -4,6 +4,7 @@ import { useTimer } from './hooks/useTimer';
 
 const testLoaders = {
   'co-all': () => import('./data/all-unique-co'),
+  'ce-all': () => import('./data/all-unique-ce'),
   'co-test-1': () => import('./data/questions'),
   'co-test-2': () => import('./data/questions-test2'),
   'co-test-3': () => import('./data/questions-test3'),

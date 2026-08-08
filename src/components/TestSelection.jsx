@@ -76,6 +76,12 @@ export default function TestSelection({ onStartTest }) {
               <h2>{"\uD83D\uDCD6"} Compréhension Écrite</h2>
               <span className="grid-meta">40 tests · 39 questions · 60 min</span>
             </div>
+            <button
+              className="all-questions-btn"
+              onClick={() => handleStart('ce-all')}
+            >
+              {"🎯"} Toutes les questions uniques (1 266)
+            </button>
             <div className="test-grid">
               {ceTests.map(t => (
                 <button
