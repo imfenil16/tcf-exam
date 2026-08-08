@@ -55,7 +55,7 @@ export default function TestSelection({ onStartTest }) {
               className="all-questions-btn"
               onClick={() => handleStart('co-all')}
             >
-              {"🎯"} Toutes les questions uniques (1 496)
+              {"🎯"} Toutes les questions uniques (1 214)
             </button>
             <div className="test-grid">
               {coTests.map(t => (
