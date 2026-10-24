@@ -135,7 +135,8 @@ export default function App() {
     if (!isReadingTest && question?.audio) {
       audio.loadSrc(question.audio);
     }
-  }, [currentQuestion]); // eslint-disable-line react-hooks/exhaustive-deps
+    // depend on question.audio so Q1 loads once async test data arrives, not only on navigation
+  }, [currentQuestion, question?.audio]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-submit when timer expires
   useEffect(() => {
