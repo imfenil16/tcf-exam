@@ -322,7 +322,7 @@ const questionsTest14 = [
     section: 4,
     sectionTitle: "Comprendre un exposé",
     level: "C1",
-    audio: "https://examens.preptcfcanada.com/wp-content/uploads/2022/04/Test-2-%E2%80%93-Q29.mp3",
+    audio: "https://examens.preptcfcanada.com/wp-content/uploads/2023/01/14Q29.mp3",
     image: null,
     options: ["D'apprendre à élaborer des itinéraires de visites.", "D'expérimenter une manière différente de voyager.", "De découvrir des adresses d'hôtel à l'étranger.", "De participer à des actions de solidarité internationale."],
     correctAnswer: 1
@@ -433,7 +433,7 @@ const questionsTest14 = [
     section: 4,
     sectionTitle: "Comprendre un exposé",
     level: "C2",
-    audio: "https://examens.preptcfcanada.com/wp-content/uploads/2023/01/Test-2-%E2%80%93-Q39.mp3",
+    audio: "https://examens.preptcfcanada.com/wp-content/uploads/2023/01/14Q39.mp3",
     image: null,
     options: ["L'absence de temps morts.", "L'ennui des distractions.", "L'insuffisance de repos.", "Le manque d'action."],
     correctAnswer: 0

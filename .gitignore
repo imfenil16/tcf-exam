@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Audio-verifier generated caches/artifacts (keep tools/*.mjs and tools/verify_audio.py)
+tools/audio-cache/
+tools/transcripts/
+tools/judgements/
+tools/img-cache/
+tools/__pycache__/
+tools/co-questions.json
+tools/verify-report.json
