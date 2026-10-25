@@ -94,6 +94,40 @@ import ResultsModal from './components/ResultsModal';
 import TestSelection from './components/TestSelection';
 import ReviewScreen from './components/ReviewScreen';
 
+// Drop questions marked { hidden: true } (e.g. content under review), renumber the
+// survivors to stay contiguous (1..N) since navigation/scoring key off q.id, and
+// remap each section's [start, end] range to the new ids. Pass-through when nothing
+// is hidden, so tests without hidden questions are unaffected.
+function normalizeTestData(questions, sections) {
+  const raw = questions || [];
+  if (!raw.some((q) => q.hidden)) {
+    return { questions: raw, sections: sections || [] };
+  }
+  const oldToNew = new Map();
+  const visible = [];
+  raw.forEach((q) => {
+    if (q.hidden) return;
+    const newId = visible.length + 1;
+    oldToNew.set(q.id, newId);
+    visible.push({ ...q, id: newId });
+  });
+  const remapRange = ([a, b]) => {
+    const ids = [];
+    oldToNew.forEach((newId, oldId) => {
+      if (oldId >= a && oldId <= b) ids.push(newId);
+    });
+    return ids.length ? [Math.min(...ids), Math.max(...ids)] : null;
+  };
+  const newSections = (sections || [])
+    .map((s) => {
+      if (!s.range) return s;
+      const r = remapRange(s.range);
+      return r ? { ...s, range: r } : null;
+    })
+    .filter(Boolean);
+  return { questions: visible, sections: newSections };
+}
+
 export default function App() {
   const [activeTest, setActiveTest] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -118,7 +152,7 @@ export default function App() {
         const keys = Object.keys(module);
         const questionsKey = keys.find(k => k.startsWith('questions'));
         const sectionsKey = keys.find(k => k.startsWith('sections'));
-        setTestData({ questions: module[questionsKey], sections: module[sectionsKey] });
+        setTestData(normalizeTestData(module[questionsKey], module[sectionsKey]));
         setLoadingTest(false);
       });
     } else {

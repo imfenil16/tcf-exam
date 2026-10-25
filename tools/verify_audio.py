@@ -26,8 +26,11 @@ import json
 import os
 import random
 import re
+import subprocess
 import sys
+import tempfile
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -86,6 +89,28 @@ def download(url: str) -> str:
 _MODEL = None
 
 
+def _run_whisper(audio_path: str) -> str:
+    segments, _ = _MODEL.transcribe(audio_path, language="fr", beam_size=1, vad_filter=True)
+    return " ".join(s.text.strip() for s in segments).strip()
+
+
+def _ffmpeg_to_wav(src: str) -> str:
+    """Re-decode a clip to 16 kHz mono WAV with the standalone ffmpeg.
+
+    faster-whisper's bundled decoder raises Errno 22 on some OGG/Vorbis files;
+    the imageio-ffmpeg binary decodes them fine.
+    """
+    import imageio_ffmpeg
+    ff = imageio_ffmpeg.get_ffmpeg_exe()
+    fd, wav = tempfile.mkstemp(suffix=".wav")
+    os.close(fd)
+    r = subprocess.run([ff, "-y", "-i", src, "-ac", "1", "-ar", "16000", "-f", "wav", wav],
+                       capture_output=True)
+    if r.returncode != 0 or not os.path.exists(wav) or os.path.getsize(wav) == 0:
+        raise RuntimeError(f"ffmpeg decode failed: {r.stderr.decode('utf-8', 'replace')[-200:]}")
+    return wav
+
+
 def transcribe(url: str, model_name: str) -> str:
     tpath = os.path.join(TRANS_DIR, cache_name(url) + f".{model_name}.txt")
     if os.path.exists(tpath):
@@ -95,8 +120,14 @@ def transcribe(url: str, model_name: str) -> str:
     if _MODEL is None:
         from faster_whisper import WhisperModel
         _MODEL = WhisperModel(model_name, device="cpu", compute_type="int8")
-    segments, _ = _MODEL.transcribe(audio, language="fr", beam_size=1, vad_filter=True)
-    text = " ".join(s.text.strip() for s in segments).strip()
+    try:
+        text = _run_whisper(audio)
+    except Exception:
+        wav = _ffmpeg_to_wav(audio)
+        try:
+            text = _run_whisper(wav)
+        finally:
+            os.remove(wav)
     with open(tpath, "w", encoding="utf-8") as f:
         f.write(text)
     return text
@@ -124,17 +155,28 @@ def _groq_call(messages):
             "max_completion_tokens": 700, "response_format": {"type": "json_object"}}
     if "gpt-oss" in model:
         body["reasoning_effort"] = "low"
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions",
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}",
-                 "User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = json.load(r)
-    content = data["choices"][0]["message"]["content"]
-    if not content or not content.strip():
-        raise RuntimeError("empty generation")
-    return json.loads(content)
+    data_bytes = json.dumps(body).encode("utf-8")
+    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
+               "User-Agent": UA}
+    last = None
+    for attempt in range(6):  # retry 429s with backoff so the scan does not gap
+        try:
+            req = urllib.request.Request(
+                "https://api.groq.com/openai/v1/chat/completions",
+                data=data_bytes, headers=headers)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = json.load(r)
+            content = data["choices"][0]["message"]["content"]
+            if not content or not content.strip():
+                raise RuntimeError("empty generation")
+            return json.loads(content)
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code == 429 and attempt < 5:
+                time.sleep(15 * (attempt + 1))
+                continue
+            raise
+    raise last
 
 
 def judge(transcript, options, correct_idx):
@@ -159,6 +201,7 @@ def main():
     ap.add_argument("--sample", type=int)
     ap.add_argument("--model", default="small")
     ap.add_argument("--no-judge", action="store_true")
+    ap.add_argument("--delay", type=float, default=0.0, help="seconds to sleep after each judged question (throttle for rate limits)")
     args = ap.parse_args()
 
     data = json.load(open(QUESTIONS, encoding="utf-8"))
@@ -207,7 +250,9 @@ def main():
                             "type": q["type"], "audio": q["audio"],
                             "options": q["options"], "correctAnswer": q["correctAnswer"],
                             "transcript": tr})
-            if args.all:
+            if args.delay:
+                time.sleep(args.delay)
+            elif args.all:
                 time.sleep(0.4)
         else:
             print(f"[{i}/{len(items)}] {q['key']}: (type {q['type']} - no options to judge)")
