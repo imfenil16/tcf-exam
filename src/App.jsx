@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAudioPlayer } from './hooks/useAudioPlayer';
 import { useTimer } from './hooks/useTimer';
 
@@ -88,11 +88,20 @@ const testLoaders = {
 };
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import MobileNavigator from './components/MobileNavigator';
 import QuestionView from './components/QuestionView';
 import ReadingQuestionView from './components/ReadingQuestionView';
 import ResultsModal from './components/ResultsModal';
 import TestSelection from './components/TestSelection';
 import ReviewScreen from './components/ReviewScreen';
+import {
+  loadProgress,
+  saveProgress,
+  clearProgress,
+  markDone,
+  setLastActive,
+  getLastActive,
+} from './lib/progress';
 
 // Drop questions marked { hidden: true } (e.g. content under review), renumber the
 // survivors to stay contiguous (1..N) since navigation/scoring key off q.id, and
@@ -128,20 +137,32 @@ function normalizeTestData(questions, sections) {
   return { questions: visible, sections: newSections };
 }
 
+// Full countdown duration for a test id (reading = 60 min, listening = 35 min).
+function durationFor(testId) {
+  return testId && testId.startsWith('ce-') ? 60 * 60 : 35 * 60;
+}
+
 export default function App() {
-  const [activeTest, setActiveTest] = useState(null);
-  const [currentQuestion, setCurrentQuestion] = useState(1);
-  const [answers, setAnswers] = useState({});
-  const [flagged, setFlagged] = useState([]);
+  // Resume the last in-progress attempt (if any) straight into where it left off.
+  const [boot] = useState(() => {
+    const id = getLastActive();
+    return { id, saved: id ? loadProgress(id) : null };
+  });
+
+  const [activeTest, setActiveTest] = useState(boot.id);
+  const [currentQuestion, setCurrentQuestion] = useState(boot.saved?.currentQuestion || 1);
+  const [answers, setAnswers] = useState(boot.saved?.answers || {});
+  const [flagged, setFlagged] = useState(boot.saved?.flagged || []);
   const [showResults, setShowResults] = useState(false);
-  const [mode, setMode] = useState('training');
+  const [mode, setMode] = useState(boot.saved?.mode || 'training');
   const [showReview, setShowReview] = useState(false);
   const [testData, setTestData] = useState(null);
   const [loadingTest, setLoadingTest] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   const isReadingTest = activeTest?.startsWith('ce-');
   const timerSeconds = isReadingTest ? 60 * 60 : 35 * 60;
-  const timer = useTimer(timerSeconds);
+  const timer = useTimer(timerSeconds, boot.saved?.remaining);
   const audio = useAudioPlayer();
 
   // Load test data dynamically when activeTest changes
@@ -202,8 +223,9 @@ export default function App() {
 
   const handleSubmit = useCallback(() => {
     audio.stop();
+    markDone(activeTest);
     setShowResults(true);
-  }, [audio]);
+  }, [audio, activeTest]);
 
   const handleRestart = useCallback(() => {
     setAnswers({});
@@ -211,17 +233,19 @@ export default function App() {
     setCurrentQuestion(1);
     setShowResults(false);
     setShowReview(false);
+    setNavOpen(false);
     setActiveTest(null);
     window.history.pushState(null, '', window.location.pathname);
   }, []);
 
+  // Leave the current test for the home screen. Progress is already saved, so there
+  // is nothing to lose and no warning to show.
   const handleGoHome = useCallback(() => {
-    if (Object.keys(answers).length > 0) {
-      if (!confirm('Quitter le test ? Votre progression sera perdue.')) return;
-    }
     audio.stop();
-    handleRestart();
-  }, [answers, audio, handleRestart]);
+    setNavOpen(false);
+    setActiveTest(null);
+    window.history.pushState(null, '', window.location.pathname);
+  }, [audio]);
 
   const handleReview = useCallback(() => {
     setShowResults(false);
@@ -238,33 +262,78 @@ export default function App() {
     setShowResults(false);
   }, []);
 
-  const handleStartTest = useCallback((testId, testMode) => {
+  const handleStartTest = useCallback((testId, testMode, opts = {}) => {
+    const saved = opts.fresh ? null : loadProgress(testId);
+    const resuming = !!(saved && !saved.done);
+    const full = durationFor(testId);
+    if (opts.fresh) clearProgress(testId);
+
     setActiveTest(testId);
-    setMode(testMode || 'training');
-    setCurrentQuestion(1);
-    setAnswers({});
-    setFlagged([]);
+    setMode(resuming ? (saved.mode || 'training') : (testMode || 'training'));
+    setCurrentQuestion(resuming ? (saved.currentQuestion || 1) : 1);
+    setAnswers(resuming ? (saved.answers || {}) : {});
+    setFlagged(resuming ? (saved.flagged || []) : []);
     setShowResults(false);
     setShowReview(false);
+    setNavOpen(false);
+    timer.reset(full, resuming ? saved.remaining : full);
+    setLastActive(testId);
     window.history.pushState({ test: testId }, '', window.location.pathname);
-  }, []);
+  }, [timer]);
 
-  // Browser back button support
+  // Browser back button: leave the test for the home screen without discarding
+  // progress (it is already persisted).
   useEffect(() => {
     const handlePopState = () => {
       if (activeTest) {
         audio.stop();
-        setAnswers({});
-        setFlagged([]);
-        setCurrentQuestion(1);
-        setShowResults(false);
-        setShowReview(false);
+        setNavOpen(false);
         setActiveTest(null);
       }
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, [activeTest, audio]);
+
+  // Persist progress on every answer / flag / navigation / mode change.
+  useEffect(() => {
+    if (!activeTest || !testData || showResults) return;
+    saveProgress(activeTest, {
+      currentQuestion,
+      answers,
+      flagged,
+      mode,
+      remaining: timer.remaining,
+      total: timerSeconds,
+      count: activeQuestions.length,
+    });
+    setLastActive(activeTest);
+    // timer.remaining intentionally omitted from deps (it ticks every second); the
+    // latest value is captured on each of the tracked changes and on unload below.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTest, testData, currentQuestion, answers, flagged, mode, showResults]);
+
+  // Capture the freshest state (including the ticking timer) when the tab closes.
+  const latest = useRef(null);
+  latest.current = { activeTest, testData, currentQuestion, answers, flagged, mode, remaining: timer.remaining, total: timerSeconds, count: activeQuestions.length, showResults };
+  useEffect(() => {
+    const onUnload = () => {
+      const s = latest.current;
+      if (s.activeTest && s.testData && !s.showResults) {
+        saveProgress(s.activeTest, {
+          currentQuestion: s.currentQuestion,
+          answers: s.answers,
+          flagged: s.flagged,
+          mode: s.mode,
+          remaining: s.remaining,
+          total: s.total,
+          count: s.count,
+        });
+      }
+    };
+    window.addEventListener('beforeunload', onUnload);
+    return () => window.removeEventListener('beforeunload', onUnload);
+  }, []);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -343,6 +412,7 @@ export default function App() {
                 audio={audio}
                 totalQuestions={activeQuestions.length}
                 mode={mode}
+                onOpenNavigator={() => setNavOpen(true)}
               />
             )}
 
@@ -357,9 +427,21 @@ export default function App() {
                 onNext={goNext}
                 totalQuestions={activeQuestions.length}
                 mode={mode}
+                onOpenNavigator={() => setNavOpen(true)}
               />
             )}
           </div>
+
+          <MobileNavigator
+            open={navOpen}
+            onClose={() => setNavOpen(false)}
+            questions={activeQuestions}
+            sections={activeSections}
+            currentQuestion={currentQuestion}
+            answers={answers}
+            flagged={flagged}
+            onSelect={(id) => { goTo(id); setNavOpen(false); }}
+          />
 
           {showResults && (
             <ResultsModal

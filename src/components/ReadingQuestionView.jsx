@@ -11,6 +11,7 @@ export default function ReadingQuestionView({
   onNext,
   totalQuestions,
   mode,
+  onOpenNavigator,
 }) {
   const [zoomedImage, setZoomedImage] = useState(null);
 
@@ -84,7 +85,7 @@ export default function ReadingQuestionView({
       {/* Mobile bottom nav */}
       <div className="mobile-nav">
         <button onClick={onPrev} disabled={question.id === 1 || mode === 'exam'} aria-label="Question précédente">←</button>
-        <span className="mobile-progress">Q{question.id} / {totalQuestions}</span>
+        <button className="mobile-progress" onClick={onOpenNavigator} aria-label="Ouvrir la navigation des questions">Q{question.id} / {totalQuestions} <span className="mobile-progress-caret" aria-hidden="true">▾</span></button>
         <button onClick={onNext} disabled={question.id === totalQuestions} aria-label="Question suivante">→</button>
       </div>
 

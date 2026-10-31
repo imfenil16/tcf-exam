@@ -2000,3 +2000,215 @@ body {
   transform: translateY(-1px);
 }
 
+/* ===== Resume / progress on test selection ===== */
+.continue-card-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.continue-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: var(--transition);
+}
+
+.continue-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px var(--accent-glow);
+}
+
+.continue-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.continue-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.continue-meta {
+  font-size: 0.82rem;
+  opacity: 0.92;
+}
+
+.continue-restart {
+  flex: 0 0 auto;
+  padding: 0 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.continue-restart:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--danger);
+  color: var(--text-primary);
+}
+
+/* Tile progress state + badge */
+.test-grid-btn,
+.all-questions-btn {
+  position: relative;
+}
+
+.test-grid-btn.in-progress {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.test-grid-btn.done {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.all-questions-btn.in-progress {
+  border-color: var(--accent);
+}
+
+.tile-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 9px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.tile-badge.done {
+  background: var(--success);
+}
+
+.all-questions-btn .tile-badge {
+  position: static;
+  margin-left: 8px;
+  box-shadow: none;
+}
+
+/* ===== Mobile question navigator (bottom sheet) ===== */
+.mobile-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-progress-caret {
+  font-size: 0.7rem;
+  color: var(--accent-light);
+}
+
+.mobile-nav-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.mobile-nav-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  animation: navFade 0.2s ease;
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.5);
+  animation: navSlideUp 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-nav-handle {
+  width: 40px;
+  height: 4px;
+  margin: 10px auto 2px;
+  border-radius: 2px;
+  background: var(--border-light);
+}
+
+.mobile-nav-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-nav-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mobile-nav-close:active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.mobile-nav-sheet-body {
+  padding: 16px 20px calc(20px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+}
+
+@keyframes navFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes navSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* The bottom sheet is a mobile-only affordance. */
+@media (min-width: 769px) {
+  .mobile-nav-sheet { display: none; }
+}
+

@@ -1,7 +1,19 @@
 ﻿import { useState } from 'react';
+import { loadIndex, getLastActive, loadProgress } from '../lib/progress';
+
+function testLabel(id) {
+  if (id === 'co-all') return 'Compréhension Orale · Toutes les questions';
+  if (id === 'ce-all') return 'Compréhension Écrite · Toutes les questions';
+  const m = id && id.match(/^(co|ce)-test-(\d+)$/);
+  if (m) return `${m[1] === 'co' ? 'Compréhension Orale' : 'Compréhension Écrite'} · Test ${m[2]}`;
+  return id;
+}
 
 export default function TestSelection({ onStartTest }) {
   const [selectedMode, setSelectedMode] = useState('training');
+  const [index] = useState(() => loadIndex());
+  const [resumeId] = useState(() => getLastActive());
+  const resume = resumeId ? loadProgress(resumeId) : null;
 
   const coTests = Array.from({ length: 40 }, (_, i) => ({
     id: `co-test-${i + 1}`,
@@ -17,6 +29,21 @@ export default function TestSelection({ onStartTest }) {
     onStartTest(testId, selectedMode);
   };
 
+  // Progress badge + state class for a test tile.
+  const tileClass = (base, id) => {
+    const p = index[id];
+    if (p && p.done) return `${base} done`;
+    if (p && p.answered > 0) return `${base} in-progress`;
+    return base;
+  };
+  const tileBadge = (id) => {
+    const p = index[id];
+    if (!p) return null;
+    if (p.done) return <span className="tile-badge done" aria-label="Terminé">✓</span>;
+    if (p.answered > 0) return <span className="tile-badge" aria-label={`${p.answered} répondu(s)`}>{p.answered}</span>;
+    return null;
+  };
+
   return (
     <div className="test-selection">
       <div className="ts-header">
@@ -30,6 +57,27 @@ export default function TestSelection({ onStartTest }) {
       </div>
 
       <div className="ts-content">
+        {resume && (
+          <div className="continue-card-wrap">
+            <button className="continue-card" onClick={() => onStartTest(resumeId)}>
+              <span className="continue-eyebrow">▶ Reprendre où vous vous êtes arrêté</span>
+              <span className="continue-title">{testLabel(resumeId)}</span>
+              <span className="continue-meta">
+                Question {resume.currentQuestion || 1}{resume.count ? ` sur ${resume.count}` : ''}
+                {' · '}{Object.keys(resume.answers || {}).length} répondu(s)
+                {' · '}{resume.mode === 'exam' ? 'Mode examen' : 'Mode entraînement'}
+              </span>
+            </button>
+            <button
+              className="continue-restart"
+              onClick={() => onStartTest(resumeId, selectedMode, { fresh: true })}
+              title="Recommencer ce test depuis le début"
+            >
+              Recommencer
+            </button>
+          </div>
+        )}
+
         <div className="stats-banner">
           <div className="stat">
             <span className="stat-number">80</span>
@@ -52,20 +100,20 @@ export default function TestSelection({ onStartTest }) {
               <span className="grid-meta">40 tests · 39 questions · 35 min</span>
             </div>
             <button
-              className="all-questions-btn"
+              className={tileClass('all-questions-btn', 'co-all')}
               onClick={() => handleStart('co-all')}
             >
-              {"🎯"} Toutes les questions uniques (1 214)
+              {"🎯"} Toutes les questions uniques (1 214){tileBadge('co-all')}
             </button>
             <div className="test-grid">
               {coTests.map(t => (
                 <button
                   key={t.id}
-                  className="test-grid-btn"
+                  className={tileClass('test-grid-btn', t.id)}
                   onClick={() => handleStart(t.id)}
                   title={`Test ${t.number}`}
                 >
-                  {t.number}
+                  {t.number}{tileBadge(t.id)}
                 </button>
               ))}
             </div>
@@ -77,20 +125,20 @@ export default function TestSelection({ onStartTest }) {
               <span className="grid-meta">40 tests · 39 questions · 60 min</span>
             </div>
             <button
-              className="all-questions-btn"
+              className={tileClass('all-questions-btn', 'ce-all')}
               onClick={() => handleStart('ce-all')}
             >
-              {"🎯"} Toutes les questions uniques (1 266)
+              {"🎯"} Toutes les questions uniques (1 266){tileBadge('ce-all')}
             </button>
             <div className="test-grid">
               {ceTests.map(t => (
                 <button
                   key={t.id}
-                  className="test-grid-btn"
+                  className={tileClass('test-grid-btn', t.id)}
                   onClick={() => handleStart(t.id)}
                   title={`Test ${t.number}`}
                 >
-                  {t.number}
+                  {t.number}{tileBadge(t.id)}
                 </button>
               ))}
             </div>
