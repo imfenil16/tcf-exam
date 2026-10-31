@@ -474,6 +474,60 @@ body {
   font-size: 0.85rem;
 }
 
+/* ===== Transcript (training mode) ===== */
+.transcript-block {
+  margin: -8px 0 28px;
+}
+
+.transcript-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.transcript-toggle:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.transcript-caret {
+  font-size: 0.7rem;
+  color: var(--accent-light);
+}
+
+.transcript-panel {
+  margin-top: 12px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.transcript-text {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.transcript-note {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
 /* ===== Audio Player ===== */
 .audio-player {
   background: var(--bg-card);

@@ -1,5 +1,17 @@
+import { useState, useEffect } from 'react';
 import AudioPlayer from './AudioPlayer';
 import OptionsList from './OptionsList';
+
+// Load the (large) transcript map once, and only when first needed.
+let _transcriptsPromise = null;
+function loadTranscripts() {
+  if (!_transcriptsPromise) {
+    _transcriptsPromise = import('../data/transcripts')
+      .then((m) => m.transcripts)
+      .catch(() => ({}));
+  }
+  return _transcriptsPromise;
+}
 
 export default function QuestionView({
   question,
@@ -13,6 +25,25 @@ export default function QuestionView({
   totalQuestions,
   mode,
 }) {
+  const [transcript, setTranscript] = useState(null);
+  const [showTranscript, setShowTranscript] = useState(false);
+
+  // Collapse the reveal whenever we move to a different question.
+  useEffect(() => { setShowTranscript(false); }, [question.id]);
+
+  // Transcripts are a training-mode study aid only.
+  useEffect(() => {
+    if (mode !== 'training' || !question.audio) {
+      setTranscript(null);
+      return;
+    }
+    let active = true;
+    loadTranscripts().then((map) => {
+      if (active) setTranscript(map[question.audio] || null);
+    });
+    return () => { active = false; };
+  }, [question.audio, mode]);
+
   return (
     <div className="question-area">
       {/* Header */}
@@ -57,6 +88,27 @@ export default function QuestionView({
         onToggle={audio.toggle}
         onSeek={audio.seek}
       />
+
+      {/* Transcript (training mode only) */}
+      {mode === 'training' && transcript && (
+        <div className="transcript-block">
+          <button
+            type="button"
+            className="transcript-toggle"
+            onClick={() => setShowTranscript((v) => !v)}
+            aria-expanded={showTranscript}
+          >
+            <span className="transcript-caret" aria-hidden="true">{showTranscript ? '\u25be' : '\u25b8'}</span>
+            {showTranscript ? 'Masquer la transcription' : 'Afficher la transcription'}
+          </button>
+          {showTranscript && (
+            <div className="transcript-panel">
+              <p className="transcript-text" lang="fr">{transcript}</p>
+              <p className="transcript-note">Transcription automatique - de petites erreurs sont possibles.</p>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Options */}
       <OptionsList
